@@ -67,15 +67,15 @@ Tekst..
 
 ### 5.1 Environment
 
-Tekst..
+![Environment](./img/Environment.png)
 
 ### 5.2 Hammer
 
-Tekst..
+![Hammer](./img/Hammer.png)
 
 ### 5.3 Puck
 
-Tekst..
+![Puck](./img/Puck.png)
 
 ### 5.4 Wall
 
