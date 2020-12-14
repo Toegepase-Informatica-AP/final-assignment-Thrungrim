@@ -72,8 +72,6 @@ De speler start het spel met een `Puck` te nemen en die op het veld te plaatsen 
 
 ![Hammer](./img/Hammer.png)
 
-De `Hammer` maakt ook gebruik van verschillende componenten zoals
-
 ### 4.3 Puck
 
 ![Puck](./img/Puck.png)
