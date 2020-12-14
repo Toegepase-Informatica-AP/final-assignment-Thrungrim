@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0321f375db76732438b91f07fac8b1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1510613805631775344}
+  player: {fileID: 1510613805631775341}
   opponent: {fileID: 102880067}
   puckPrefab: {fileID: 8058601891266343563, guid: b8f46ff6a22ee3b4084bb30d5fb9eb0d,
     type: 3}
@@ -1103,6 +1103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
       propertyPath: m_BehaviorName
       value: Hammer
       objectReference: {fileID: 0}
@@ -1111,10 +1116,20 @@ PrefabInstance:
       propertyPath: TeamId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 398645569937128907, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 398645569937128907, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
@@ -1141,7 +1156,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 398645569937128907, guid: 92e20014b79e19147a1725ee7c83ee05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92e20014b79e19147a1725ee7c83ee05, type: 3}
 --- !u!23 &1432266392031630589
 MeshRenderer:
@@ -1245,7 +1261,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510613805631775340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 481288bb836967f4188669cec4e77780, type: 3}
   m_Name: 
@@ -1257,18 +1273,6 @@ MonoBehaviour:
   force: 250
   goalAmount: 0
   matchWon: 0
---- !u!114 &1510613805631775344 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 398645569937128907, guid: 92e20014b79e19147a1725ee7c83ee05,
-    type: 3}
-  m_PrefabInstance: {fileID: 1260587092184473531}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510613805631775340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5e57f3908371d469e9246273ddaa4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1546499131509220697
 BoxCollider:
   m_ObjectHideFlags: 0

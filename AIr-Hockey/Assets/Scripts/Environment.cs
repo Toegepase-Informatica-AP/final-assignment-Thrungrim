@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    public Hammer player;
+    public HammerPlayer player;
     public Hammer opponent;
     private TextMeshPro scoreBoard;
     public Puck puckPrefab;

@@ -135,13 +135,6 @@ public class Hammer : Agent
         {
             AddReward(0.01f);
         }
-        //if (collision.transform.CompareTag("Puck") == false)
-        //{
-        //    if (matchWon)
-        //    {
-        //        EndEpisode();
-        //    }
-        //}
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -76,13 +76,13 @@ public class HammerPlayer : Agent
     {
         actionsOut[0] = 0f;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A))
             {
                 actionsOut[0] = 8f;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.D))
             {
                 actionsOut[0] = 2f;
             }
@@ -91,13 +91,13 @@ public class HammerPlayer : Agent
                 actionsOut[0] = 1f;
             }
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A))
             {
                 actionsOut[0] = 6f;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.D))
             {
                 actionsOut[0] = 4f;
             }
@@ -106,11 +106,11 @@ public class HammerPlayer : Agent
                 actionsOut[0] = 5f;
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A))
         {
             actionsOut[0] = 7f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             actionsOut[0] = 3f;
         }
@@ -133,13 +133,6 @@ public class HammerPlayer : Agent
         if (collision.transform.CompareTag("Puck") == true)
         {
             AddReward(0.01f);
-        }
-        if (collision.transform.CompareTag("Puck") == false)
-        {
-            if (matchWon)
-            {
-                EndEpisode();
-            }
         }
     }
     private void OnTriggerEnter(Collider other)
