@@ -7,8 +7,8 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 1. [Benodigdheden](#1-benodigdheden)
 1. [Inleiding](#2-inleiding)
 1. [Spelverloop](#3-spelverloop)
-1. [Agent](#4-agent)
-1. [Objecten](#5-objecten)
+1. [Objecten](#4-objecten)
+1. [Agent](#5-agent)
 1. [Scripts](#6-scripts)
 1. [Training](#7-training)
 1. [One-pager](#8-one-pager)
@@ -29,7 +29,7 @@ VR AIrHockey is een spel waarbij een speler tegen een AI speelt. De speler kan m
 
 Doorheen dit document worden drie belangrijke aspecten aangeleerd. Ten eerste het bouwen van een Unity omgeving om het spel te kunnen spelen. Ten tweede een Artificial Inteligence Agent aanleren hoe hij het spel airhockey moet spelen. En ten derde hoe we deze omgeving kunnen combineren met het VR-aspect.
 
-|          Student         |      Email      |
+| Student                  | Email           |
 |--------------------------|:---------------:|
 | Kristof De Winter        | s106749@ap.be   |
 | Felix Neijzen            | s109332@ap.be   |
@@ -41,15 +41,60 @@ Doorheen dit document worden drie belangrijke aspecten aangeleerd. Ten eerste he
 
 De speler start het spel met een `Puck` te nemen en die op het veld te plaatsen met zijn controllers. Eenmaal de `Puck` geplaatst is start het spel en kan de spelere met zijn `Hammer` slagen tegen de `Puck`. Op deze manier kan de speler scoren in de goal van de tegenstander. Als de speler of de AI 5 punten kan scoren bij zijn tegenstander is hij gewonnen. Hierna stopt het spel.
 
-## 4. Agent
+## 4. Objecten
 
-### 4.1 Observaties
+| Name            | Soort Object                    | Tag             |
+|-----------------|:-------------------------------:|:---------------:|
+| Environment     | EmptyObject                     | Environment     |
+| Hammer-Player   | 3D GameObject (Red)             | Hammer-Player   |
+| Hammer-Opponent | 3D GameObject (Red)             | Hammer-Opponent |
+| Puck            | 3D GameObject Cillinder (Black) | Puck            |
+| Ground          | 3D GameObject Plane             | Field           |
+| West-Border     | 3D GameObject Cube              | Border          |
+| East-Border     | 3D GameObject Cube              | Border          |
+| North-Border    | EmptyObject                     | /               |
+| South-Border    | EmptyObject                     | /               |
+| Left-Wall       | 3D GameObject Cube              | Border          |
+| Right-Wall      | 3D GameObject Cube              | Border          |
+| Left-Corner     | 3D GameObject Cube              | Border          |
+| Right-Corner    | 3D GameObject Cube              | Border          |
+| Goal            | 3D GameObject Cube              | Goal-Opponent   |
+| Goal            | 3D GameObject Cube              | Goal-Player     |
+| Divider         | EmptyObject Cube                | Divider         |
+| Spawn-Puck      | EmptyObject Cube                | /               |
+| Scoreboard      | 3D GameObject TextMeshPro (TMP) | Scoreboard      |
 
-De ML-Agent kan 3 verschillende objecten observeren met zijn 3D Ray Perception Sensor. De `Puck` kan hij observeren om te bepalen wanneer hij er tegen moet slagen. Natuurlijk moet hij ook de `GoalPlayer` observeren om de richting te bepalen waarnaar hij de `Puck` slaagt. Aangezien er in Air-Hockey ook verdedigt kan worden moet hij de `Hammer` van de speler ook kunnen observeren.
+### 4.1 Environment
 
-### 4.2 Acties
+![Environment](./img/Environment.png)
 
-Inhoudelijk hebben 5 acties voor de ML-Agent:
+### 4.2 Hammer
+
+![Hammer](./img/Hammer.png)
+
+De `Hammer` maakt ook gebruik van verschillende componenten zoals
+
+### 4.3 Puck
+
+![Puck](./img/Puck.png)
+
+### 4.4 Wall
+
+Tekst..
+
+### 4.5 Goal
+
+Tekst..
+
+## 5. Agent
+
+### 5.1 Observaties
+
+De ML-Agent kan drie verschillende objecten observeren met zijn Ray Perception Sensor 3D. De `Puck` kan hij observeren om te bepalen wanneer hij er tegen moet slagen. Natuurlijk moet hij ook de `GoalPlayer` observeren om de richting te bepalen waar hij de `Puck` naar slaagt. Aangezien er in Air-Hockey ook verdedigt kan worden moet hij de `Hammer` van de speler ook kunnen observeren.
+
+### 5.2 Acties
+
+Inhoudelijk hebben we vijf acties voor de ML-Agent:
 
 1. Beweging vooruit
 1. Beweging naar rechts
@@ -57,35 +102,20 @@ Inhoudelijk hebben 5 acties voor de ML-Agent:
 1. Beweging naar links
 1. Geen beweging
 
-Doorheen het spel zal de ML-Agent voortdurend beslissingen maken tussen deze 5 acties.
+Doorheen het spel zal de ML-Agent voortdurend beslissingen maken tussen deze vijf acties.
 
-### 4.3 Beloningen
-
-Tekst..
-
-## 5. Objecten
-
-### 5.1 Environment
-
-![Environment](./img/Environment.png)
-
-### 5.2 Hammer
-
-![Hammer](./img/Hammer.png)
-
-### 5.3 Puck
-
-![Puck](./img/Puck.png)
-
-### 5.4 Wall
+### 5.3 Beloningen
 
 Tekst..
 
-### 5.5 Goal
+## 6. Componenten & Scripts
 
-Tekst..
-
-## 6. Scripts
+| Object         | Component                                                                       | Script      |
+|----------------|:-------------------------------------------------------------------------------:|:-----------:|
+| Environment    | /                                                                               | Environment |
+| HammerPlayer   | RigidBody                                                                       | Hammer      |
+| HammerOpponent | RigidBody, Ray Perception Sensor 3D, Decision Requester, Behaviour Parameters   | Hammer      |
+| Puck           | RigidBody                                                                       | Puck        |
 
 ### 6.1 Environment
 
