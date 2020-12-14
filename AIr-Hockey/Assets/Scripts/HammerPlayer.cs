@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.MLAgents;
 using UnityEngine;
 
-public class Hammer : Agent
+public class HammerPlayer : Agent
 {
     private Environment environment;
     public float force = 250f;
@@ -69,7 +69,6 @@ public class Hammer : Agent
 
     public override void OnEpisodeBegin()
     {
-        goalAmount = 0;
         matchWon = false;
         environment.ClearEnvironment(true);
     }
@@ -135,13 +134,13 @@ public class Hammer : Agent
         {
             AddReward(0.01f);
         }
-        //if (collision.transform.CompareTag("Puck") == false)
-        //{
-        //    if (matchWon)
-        //    {
-        //        EndEpisode();
-        //    }
-        //}
+        if (collision.transform.CompareTag("Puck") == false)
+        {
+            if (matchWon)
+            {
+                EndEpisode();
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

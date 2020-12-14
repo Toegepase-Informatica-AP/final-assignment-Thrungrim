@@ -139,8 +139,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8e418b4e7408143aa91a8672eeeaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4319184156422850383}
-  positiePuckPlayer: {fileID: 2843863277242040461, guid: c38f03d35615b7741bf4092f32f7e3e6,
-    type: 3}
-  positiePuckOpponent: {fileID: 8493458409372619833, guid: 1c0d3e7fe0b403742a15e1fd8280a6e8,
-    type: 3}

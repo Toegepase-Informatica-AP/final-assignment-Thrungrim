@@ -14,8 +14,6 @@ public class Environment : MonoBehaviour
     public void OnEnable()
     {
         scoreBoard = transform.GetComponentInChildren<TextMeshPro>();
-        player = transform.GetComponentInChildren<Hammer>();
-        opponent = transform.GetComponentInChildren<Hammer>();
     }
 
     public void ClearEnvironment(bool playerScored)
@@ -23,10 +21,12 @@ public class Environment : MonoBehaviour
         if (player.goalAmount > 5)
         {
             player.EndEpisode();
+            opponent.EndEpisode();
         }
         else if (opponent.goalAmount > 5)
         {
             opponent.EndEpisode();
+            player.EndEpisode();
         }
         else
         {
@@ -45,14 +45,19 @@ public class Environment : MonoBehaviour
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(-5f, 0f);
+            player.transform.position = new Vector3(-5.5f, -0.64f, 0);
+            opponent.transform.position = new Vector3(9f, -0.64f, 0);
         }
         else
         {
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(5f, 0f);
+            player.transform.position = new Vector3(-5.5f, -0.64f, 0);
+            opponent.transform.position = new Vector3(9f, -0.64f, 0);
         }
     }
+    //-0.375184
 
     public void AddPointsPlayer()
     {
@@ -69,6 +74,6 @@ public class Environment : MonoBehaviour
 
     public void FixedUpdate()
     {
-        scoreBoard.text = player.GetCumulativeReward().ToString("f2");
+        scoreBoard.text = player.GetCumulativeReward().ToString("f2") + " | " + opponent.GetCumulativeReward().ToString("f2");
     }
 }
