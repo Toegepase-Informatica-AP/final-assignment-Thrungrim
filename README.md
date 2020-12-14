@@ -4,7 +4,7 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 
 ## Inhoudsopgave
 
-1. [Benodigheden](#1-benodigdheden)
+1. [Benodigdheden](#1-benodigdheden)
 1. [Inleiding](#2-inleiding)
 1. [Spelverloop](#3-spelverloop)
 1. [Agent](#4-agent)
@@ -14,7 +14,7 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 1. [One-pager](#8-one-pager)
 1. [Conclusie](#9-conclusie)
 
-## 1. Benodigheden
+## 1. Benodigdheden
 
 1. Unity Hub 2.4.1 (<https://unity3d.com/get-unity/download>)
 1. Unity versie 2019.4.11f1 (<https://unity3d.com/unity/whats-new/2019.4.11>)
