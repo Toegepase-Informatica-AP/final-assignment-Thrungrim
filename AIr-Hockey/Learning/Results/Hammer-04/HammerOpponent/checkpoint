@@ -1,0 +1,2 @@
+model_checkpoint_path: "HammerOpponent-28800.ckpt"
+all_model_checkpoint_paths: "HammerOpponent-28800.ckpt"

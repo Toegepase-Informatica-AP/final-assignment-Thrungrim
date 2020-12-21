@@ -1,0 +1,39 @@
+{
+    "Hammer": {
+        "checkpoints": [
+            {
+                "steps": 24960,
+                "file_path": "results\\Hammer-05\\Hammer\\Hammer-24960.nn",
+                "reward": null,
+                "creation_time": 1608554916.3611047
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24960,
+            "file_path": "results\\Hammer-05\\Hammer.nn",
+            "reward": null,
+            "creation_time": 1608554916.3611047
+        }
+    },
+    "HammerOpponent": {
+        "checkpoints": [
+            {
+                "steps": 0,
+                "file_path": "results\\Hammer-05\\HammerOpponent\\HammerOpponent-0.nn",
+                "reward": null,
+                "creation_time": 1608554920.4662359
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 0,
+            "file_path": "results\\Hammer-05\\HammerOpponent.nn",
+            "reward": null,
+            "creation_time": 1608554920.4662359
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.0",
+        "tensorflow_version": "2.3.1"
+    }
+}

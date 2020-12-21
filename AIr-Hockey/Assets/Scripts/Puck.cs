@@ -6,15 +6,17 @@ public class Puck : MonoBehaviour
 {
     private Environment environment;
     private Rigidbody rb;
+    private float maxSpeed = 25f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         environment = GetComponentInParent<Environment>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,7 +28,7 @@ public class Puck : MonoBehaviour
 
         if (collision.gameObject.CompareTag("HammerPlayer") || collision.gameObject.CompareTag("HammerOpponent"))
         {
-            rb.velocity = new Vector3(rb.velocity.x * 3, 0, rb.velocity.z * 3);
+            rb.velocity = new Vector3(rb.velocity.x * 5, 0, rb.velocity.z * 5);
         }
 
         if (collision.gameObject.CompareTag("Border"))

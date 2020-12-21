@@ -69,6 +69,7 @@ public class HammerPlayer : Agent
 
     public override void OnEpisodeBegin()
     {
+        goalAmount = 0;
         matchWon = false;
         environment.ClearEnvironment(true);
     }

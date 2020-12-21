@@ -24,40 +24,40 @@ public class Hammer : Agent
         dirX = 0f;
         dirZ = 0f;
 
-        if (vectorAction[0] != 0f)
+        if (vectorAction[1] != 0f)
         {
-            if (vectorAction[0] == 1f)
+            if (vectorAction[1] == 1f)
             {
                 dirZ = force * Time.deltaTime;
             }
-            else if (vectorAction[0] == 2f)
+            else if (vectorAction[1] == 2f)
             {
                 dirZ = force * Time.deltaTime;
                 dirX = force * Time.deltaTime;
             }
-            else if (vectorAction[0] == 3f)
+            else if (vectorAction[1] == 3f)
             {
                 dirX = force * Time.deltaTime;
             }
-            else if (vectorAction[0] == 4f)
+            else if (vectorAction[1] == 4f)
             {
                 dirZ = -(force * Time.deltaTime);
                 dirX = force * Time.deltaTime;
             }
-            else if (vectorAction[0] == 5f)
+            else if (vectorAction[1] == 5f)
             {
                 dirZ = -(force * Time.deltaTime);
             }
-            else if (vectorAction[0] == 6f)
+            else if (vectorAction[1] == 6f)
             {
                 dirZ = -(force * Time.deltaTime);
                 dirX = -(force * Time.deltaTime);
             }
-            else if (vectorAction[0] == 7f)
+            else if (vectorAction[1] == 7f)
             {
                 dirX = -(force * Time.deltaTime);
             }
-            else if (vectorAction[0] == 8f)
+            else if (vectorAction[1] == 8f)
             {
                 dirZ = force * Time.deltaTime;
                 dirX = -(force * Time.deltaTime);
@@ -75,45 +75,45 @@ public class Hammer : Agent
     }
     public override void Heuristic(float[] actionsOut)
     {
-        actionsOut[0] = 0f;
+        actionsOut[1] = 0f;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                actionsOut[0] = 8f;
+                actionsOut[1] = 8f;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                actionsOut[0] = 2f;
+                actionsOut[1] = 2f;
             }
             else
             {
-                actionsOut[0] = 1f;
+                actionsOut[1] = 1f;
             }
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                actionsOut[0] = 6f;
+                actionsOut[1] = 6f;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                actionsOut[0] = 4f;
+                actionsOut[1] = 4f;
             }
             else
             {
-                actionsOut[0] = 5f;
+                actionsOut[1] = 5f;
             }
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            actionsOut[0] = 7f;
+            actionsOut[1] = 7f;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            actionsOut[0] = 3f;
+            actionsOut[1] = 3f;
         }
     }
     private void ResetPlayer()

@@ -20,13 +20,13 @@ public class Environment : MonoBehaviour
     {
         if (player.goalAmount > 5)
         {
-            player.EndEpisode();
-            opponent.EndEpisode();
+            player.EndEpisodeHockey();
+            opponent.EndEpisodeHockey();
         }
         else if (opponent.goalAmount > 5)
         {
-            opponent.EndEpisode();
-            player.EndEpisode();
+            opponent.EndEpisodeHockey();
+            player.EndEpisodeHockey();
         }
         else
         {
