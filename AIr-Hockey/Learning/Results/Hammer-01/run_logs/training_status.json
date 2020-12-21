@@ -1,18 +1,34 @@
 {
-    "Hammer": {
+    "HammerOpponent": {
         "checkpoints": [
             {
-                "steps": 3904,
-                "file_path": "results\\Hammer-01\\Hammer\\Hammer-3904.nn",
+                "steps": 501120,
+                "file_path": "results\\Hammer-01\\HammerOpponent\\HammerOpponent-501120.nn",
                 "reward": null,
-                "creation_time": 1608553630.976654
+                "creation_time": 1608580892.741035
             }
         ],
         "final_checkpoint": {
-            "steps": 3904,
+            "steps": 501120,
+            "file_path": "results\\Hammer-01\\HammerOpponent.nn",
+            "reward": null,
+            "creation_time": 1608580892.741035
+        }
+    },
+    "Hammer": {
+        "checkpoints": [
+            {
+                "steps": 500352,
+                "file_path": "results\\Hammer-01\\Hammer\\Hammer-500352.nn",
+                "reward": null,
+                "creation_time": 1608580896.8716052
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500352,
             "file_path": "results\\Hammer-01\\Hammer.nn",
             "reward": null,
-            "creation_time": 1608553630.976654
+            "creation_time": 1608580896.8716052
         }
     },
     "metadata": {

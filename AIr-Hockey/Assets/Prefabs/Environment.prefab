@@ -249,6 +249,7 @@ MonoBehaviour:
   puckPrefab: {fileID: 8058601891266343563, guid: b8f46ff6a22ee3b4084bb30d5fb9eb0d,
     type: 3}
   position: {fileID: 2974464014790921060}
+  rightSide: 0
 --- !u!1 &2296028024404246046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1711,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[0]
+      value: Puck
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[1]
+      value: HammerOpponent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[2]
+      value: Border
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[3]
+      value: GoalOpponent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[4]
+      value: GoalPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260587093815536159, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[5]
+      value: GoalOpponent
+      objectReference: {fileID: 0}
     - target: {fileID: 1300375281788588728, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
       propertyPath: m_Constraints
@@ -1746,6 +1782,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[0]
+      value: Puck
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[1]
+      value: HammerPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[2]
+      value: Border
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[3]
+      value: GoalOpponent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190806138454, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[4]
+      value: GoalPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 5313768190849488586, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}

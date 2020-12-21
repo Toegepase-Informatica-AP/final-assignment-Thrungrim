@@ -1,2 +1,2 @@
-model_checkpoint_path: "Hammer-3904.ckpt"
-all_model_checkpoint_paths: "Hammer-3904.ckpt"
+model_checkpoint_path: "Hammer-500352.ckpt"
+all_model_checkpoint_paths: "Hammer-500352.ckpt"
