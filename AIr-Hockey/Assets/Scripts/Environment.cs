@@ -45,16 +45,16 @@ public class Environment : MonoBehaviour
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(-5f, 0f);
-            player.transform.position = new Vector3(-5.5f, -0.64f, 0);
-            opponent.transform.position = new Vector3(9f, -0.64f, 0);
+            player.transform.localPosition = new Vector3(-5.5f, -0.64f, 0);
+            opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
         }
         else
         {
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(5f, 0f);
-            player.transform.position = new Vector3(-5.5f, -0.64f, 0);
-            opponent.transform.position = new Vector3(9f, -0.64f, 0);
+            player.transform.localPosition = new Vector3(-5.5f, -0.64f, 0);
+            opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
         }
     }
     //-0.375184
