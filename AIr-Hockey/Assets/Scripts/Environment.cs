@@ -10,10 +10,27 @@ public class Environment : MonoBehaviour
     private TextMeshPro scoreBoard;
     public Puck puckPrefab;
     public GameObject position;
+    public bool rightSide;
 
     public void OnEnable()
     {
         scoreBoard = transform.GetComponentInChildren<TextMeshPro>();
+    }
+
+    public void FixedUpdate()
+    {
+        foreach (Transform _object in position.transform)
+        {
+            if (_object.gameObject.transform.localPosition.x > 0)
+            {
+                rightSide = true;
+            }
+            else
+            {
+                rightSide = false;
+            }
+        }
+        scoreBoard.text = player.GetCumulativeReward().ToString("f2") + " | " + opponent.GetCumulativeReward().ToString("f2");
     }
 
     public void ClearEnvironment(bool playerScored)
@@ -72,8 +89,4 @@ public class Environment : MonoBehaviour
         opponent.goalAmount++;
     }
 
-    public void FixedUpdate()
-    {
-        scoreBoard.text = player.GetCumulativeReward().ToString("f2") + " | " + opponent.GetCumulativeReward().ToString("f2");
-    }
 }

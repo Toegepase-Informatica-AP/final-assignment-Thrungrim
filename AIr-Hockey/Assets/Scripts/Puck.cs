@@ -37,8 +37,6 @@ public class Puck : MonoBehaviour
             var collisionAngle = Vector3.Angle(orthogonalVector, rb.velocity);
             transform.rotation *= Quaternion.Euler(0, collisionAngle, 0);
             rb.velocity = new Vector3(rb.velocity.x * 2, 0, rb.velocity.z * 2);
-            //rb.velocity = Vector3.Reflect(collision.relativeVelocity * 2, collision.contacts[0].normal);
-            //rb.velocity = new Vector3(25, 0, 25);
         }
         if (collision.gameObject.CompareTag("GoalPlayer"))
         {
