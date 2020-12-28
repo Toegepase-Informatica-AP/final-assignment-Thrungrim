@@ -142,7 +142,11 @@ public class HammerPlayer : Agent
     {
         if (collision.transform.CompareTag("Puck") == true)
         {
-            AddReward(0.01f);
+            AddReward(0.1f);
+        }
+        if (collision.transform.CompareTag("Border") == true)
+        {
+            AddReward(-0.01f);
         }
     }
     private void OnTriggerEnter(Collider other)
