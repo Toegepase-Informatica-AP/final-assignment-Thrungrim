@@ -1,0 +1,47 @@
+{
+    "Hammer": {
+        "checkpoints": [
+            {
+                "steps": 349984,
+                "file_path": "results\\Hammer-28\\Hammer\\Hammer-349984.nn",
+                "reward": -1.2889999510720371,
+                "creation_time": 1609786010.6501162
+            },
+            {
+                "steps": 399984,
+                "file_path": "results\\Hammer-28\\Hammer\\Hammer-399984.nn",
+                "reward": -1.622999943047762,
+                "creation_time": 1609786347.8624485
+            },
+            {
+                "steps": 449984,
+                "file_path": "results\\Hammer-28\\Hammer\\Hammer-449984.nn",
+                "reward": -1.1449999587610364,
+                "creation_time": 1609786682.8699868
+            },
+            {
+                "steps": 499984,
+                "file_path": "results\\Hammer-28\\Hammer\\Hammer-499984.nn",
+                "reward": -1.73699993789196,
+                "creation_time": 1609787017.8923848
+            },
+            {
+                "steps": 500240,
+                "file_path": "results\\Hammer-28\\Hammer\\Hammer-500240.nn",
+                "reward": -1.73699993789196,
+                "creation_time": 1609787021.6408088
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500240,
+            "file_path": "results\\Hammer-28\\Hammer.nn",
+            "reward": -1.73699993789196,
+            "creation_time": 1609787021.6408088
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.0",
+        "tensorflow_version": "2.3.1"
+    }
+}
