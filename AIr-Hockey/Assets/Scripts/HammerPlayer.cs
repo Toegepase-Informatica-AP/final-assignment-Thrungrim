@@ -20,13 +20,13 @@ public class HammerPlayer : Agent
         environment = GetComponentInParent<Environment>();
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if (!environment.rightSide)
         {
             AddReward(-0.0001f);
         }
-    }
+    }*/
 
     public override void OnActionReceived(float[] vectorAction)
     {
@@ -82,6 +82,7 @@ public class HammerPlayer : Agent
         matchWon = false;
         environment.ClearEnvironment(true);
     }
+
     public override void Heuristic(float[] actionsOut)
     {
         actionsOut[0] = 0f;
@@ -125,10 +126,10 @@ public class HammerPlayer : Agent
             actionsOut[0] = 3f;
         }
     }
-    private void ResetPlayer()
+    /*private void ResetPlayer()
     {
         //transform.position = new Vector3(orig.position.x, orig.position.y, orig.position.z);
-    }
+    }*/
 
     public void GetPoint()
     {
@@ -142,7 +143,7 @@ public class HammerPlayer : Agent
     {
         if (collision.transform.CompareTag("Puck") == true)
         {
-            AddReward(0.1f);
+            AddReward(0.25f);
         }
         if (collision.transform.CompareTag("Border") == true)
         {

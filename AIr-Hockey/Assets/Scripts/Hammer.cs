@@ -20,13 +20,13 @@ public class Hammer : Agent
         environment = GetComponentInParent<Environment>();
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if (environment.rightSide)
         {
             AddReward(-0.0001f);
         }
-    }
+    }*/
 
     public override void OnActionReceived(float[] vectorAction)
     {

@@ -6,11 +6,11 @@ using UnityEngine;
 public class Environment : MonoBehaviour
 {
     public HammerPlayer player;
-    public Hammer opponent;
+    public HammerPlayer opponent;
     private TextMeshPro scoreBoard;
     public Puck puckPrefab;
     public GameObject position;
-    public bool rightSide;
+    //public bool rightSide;
 
     public void OnEnable()
     {
@@ -19,7 +19,7 @@ public class Environment : MonoBehaviour
 
     public void FixedUpdate()
     {
-        foreach (Transform _object in position.transform)
+        /*foreach (Transform _object in position.transform)
         {
             if (_object.gameObject.transform.localPosition.x > 0)
             {
@@ -29,7 +29,7 @@ public class Environment : MonoBehaviour
             {
                 rightSide = false;
             }
-        }
+        }*/
         scoreBoard.text = player.GetCumulativeReward().ToString("f2") + " | " + opponent.GetCumulativeReward().ToString("f2");
     }
 

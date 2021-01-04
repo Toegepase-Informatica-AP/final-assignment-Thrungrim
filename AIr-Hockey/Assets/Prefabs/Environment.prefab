@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4478324497059485331}
-  - component: {fileID: 2974464016062038536}
+  - component: {fileID: 3754616950709459083}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Border
@@ -232,7 +232,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2974464016062038536
+--- !u!114 &3754616950709459083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,11 +245,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4445523438735724500}
-  opponent: {fileID: 2974464015312256762}
+  opponent: {fileID: 8625305283745848095}
   puckPrefab: {fileID: 8058601891266343563, guid: b8f46ff6a22ee3b4084bb30d5fb9eb0d,
     type: 3}
   position: {fileID: 2974464014790921060}
-  rightSide: 0
 --- !u!1 &2296028024404246046
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +851,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 2.5, z: 1}
   m_Center: {x: -1.96, y: -0.7, z: 0}
+--- !u!114 &8625305283745848095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527957705518167652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481288bb836967f4188669cec4e77780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 3000
+  force: 250
+  goalAmount: 0
+  matchWon: 0
 --- !u!1 &4443115122072986952
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +978,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 3000
   force: 250
   goalAmount: 0
   matchWon: 0
@@ -1666,6 +1684,11 @@ PrefabInstance:
       propertyPath: DecisionPeriod
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128905, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: TakeActionsBetweenDecisions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.size
@@ -1690,6 +1713,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 398645569937128906, guid: 92e20014b79e19147a1725ee7c83ee05,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 398645569937128907, guid: 92e20014b79e19147a1725ee7c83ee05,
         type: 3}
@@ -1818,20 +1851,30 @@ PrefabInstance:
       propertyPath: DecisionPeriod
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5313768190849488586, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: TakeActionsBetweenDecisions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5313768190849488587, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
       propertyPath: force
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 5313768190849488587, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
       propertyPath: m_BehaviorName
-      value: HammerOpponent
+      value: Hammer
       objectReference: {fileID: 0}
     - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
@@ -1846,7 +1889,17 @@ PrefabInstance:
     - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313768190849488588, guid: 2e203b1627dbe944cabc4e5f1de75729,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768255223517142613, guid: 2e203b1627dbe944cabc4e5f1de75729,
         type: 3}
@@ -1913,23 +1966,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5313768190849488587, guid: 2e203b1627dbe944cabc4e5f1de75729, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e203b1627dbe944cabc4e5f1de75729, type: 3}
+--- !u!1 &3527957705518167652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5768255223517142613, guid: 2e203b1627dbe944cabc4e5f1de75729,
+    type: 3}
+  m_PrefabInstance: {fileID: 6987659483535435825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3570932978033391595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5870345188004372442, guid: 2e203b1627dbe944cabc4e5f1de75729,
     type: 3}
   m_PrefabInstance: {fileID: 6987659483535435825}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2974464015312256762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5313768190849488587, guid: 2e203b1627dbe944cabc4e5f1de75729,
-    type: 3}
-  m_PrefabInstance: {fileID: 6987659483535435825}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5e57f3908371d469e9246273ddaa4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
