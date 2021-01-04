@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents;
+﻿using Unity.MLAgents;
 using UnityEngine;
 
 public class HammerPlayer : Agent
@@ -151,9 +149,6 @@ public class HammerPlayer : Agent
     }
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.CompareTag("wallreward") == true)
-        //{
-        //    AddReward(0.1f);
-        //}
+        
     }
 }

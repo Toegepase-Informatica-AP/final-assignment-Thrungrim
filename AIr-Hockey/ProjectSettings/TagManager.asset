@@ -13,6 +13,8 @@ TagManager:
   - Fire
   - Border
   - Field
+  - scoreboard
+  - RightController
   layers:
   - Default
   - TransparentFX
