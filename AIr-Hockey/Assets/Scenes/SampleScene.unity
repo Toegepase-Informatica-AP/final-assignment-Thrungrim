@@ -236,27 +236,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 66fa3fac039574f4d8e0df7eeb512b18,
+      objectReference: {fileID: 5022602860645237092, guid: 584d7c4a587237b44964c094aa746b73,
         type: 3}
     - target: {fileID: 2974464015352329831, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: m_RaysPerDirection
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2974464015352329831, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: m_SphereCastRadius
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2974464015796246557, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: m_RaysPerDirection
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2974464015796246557, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: m_SphereCastRadius
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 3140888395283165848, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
@@ -272,12 +272,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 66fa3fac039574f4d8e0df7eeb512b18,
+      objectReference: {fileID: 5022602860645237092, guid: 584d7c4a587237b44964c094aa746b73,
         type: 3}
     - target: {fileID: 4445523438735724500, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: MaxStep
-      value: 200
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4445523438735724501, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 8625305283745848095, guid: d4ed0baf7a9c37541972f54342882175,
         type: 3}
       propertyPath: MaxStep
-      value: 200
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4445523438735724503, guid: d4ed0baf7a9c37541972f54342882175, type: 3}
