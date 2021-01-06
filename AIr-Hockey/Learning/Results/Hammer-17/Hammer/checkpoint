@@ -1,0 +1,2 @@
+model_checkpoint_path: "Hammer-163200.ckpt"
+all_model_checkpoint_paths: "Hammer-163200.ckpt"
