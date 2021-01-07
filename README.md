@@ -94,14 +94,17 @@ Origineel zou deze groep een virtuele schietbaan maken waar de doelwitten bewege
 ### 4.2 Environment
 
 ![Environment](./img/Environment.png)
+![Environment](./img/Inspector-Environment.png)
 
 ### 4.3 Hammer
 
 ![Hammer](./img/Hammer.png)
+![Hammer](./img/Inspector-Hammer.png)
 
 ### 4.4 Puck
 
 ![Puck](./img/Puck.png)
+![Puck](./img/Inspector-Puck.png)
 
 ### 4.5 Border
 
@@ -159,7 +162,7 @@ Doorheen het spel zal de ML-Agent voortdurend beslissingen maken tussen deze neg
 
 ### 6.1 Environment
 
-Het environment script bevat alle instellingen van de applicatie. Dit script zorgt ervoor dat de puck aan de juiste zijde van het veld wordt gegenereerd. Het spel wordt opnieuw opgestart als er een speler is met vijf punten.
+Het environment script bevat alle instellingen van de applicatie. Dit script zorgt ervoor dat de `Puck` aan de juiste zijde van het veld wordt gegenereerd. Het spel wordt opnieuw opgestart als er een speler is met vijf punten.
 
 ```cshrp
 public HammerPlayer player;
@@ -174,7 +177,7 @@ public void OnEnable()
 }
 ```
 
-Bovenaan het script worden de variabelen geïnitialiseerd. In de "OnEnable()" methode wordt de scoreboard variabele opgevuld met het scoreboard object.
+Bovenaan het script worden de variabelen geïnitialiseerd. In de OnEnable methode wordt de scoreboard variabele opgevuld met het scoreboard object.
 
 ```csharp
 public void FixedUpdate()
@@ -183,7 +186,7 @@ public void FixedUpdate()
 }
 ```
 
-In de "FixedUpdate()" methode wordt de score van de agents weergegeven met een precisie van twee cijfers na de komma. Deze methode wordt elke frame aangeroepen, dit zorgt ervoor dat de score van de agent contstant wordt geüpdatet.
+In de FixedUpdate methode wordt de score van de agents weergegeven met een precisie van twee cijfers na de komma. Deze methode wordt elke frame aangeroepen, dit zorgt ervoor dat de score van de agent contstant wordt geüpdatet.
 
 ```csharp
 public void ClearEnvironment(bool playerScored)
@@ -209,7 +212,7 @@ public void ClearEnvironment(bool playerScored)
 }
 ```
 
-In deze methode wordt het environment gereset als de speler of de tegenstander vijf punten heeft behaald. Als geen van beide vijf punten hebben, worden alle objecten verwijderd. De `puck` wordt opnieuw gegenereerd op basis van wie er gescoord heeft. Als de speler gescoord heeft, wordt de `puck` gegenereerd aan de zijde van de tegenstander. Als de tegenstander gescoord heeft, wordt de `puck` gegenereerd aan de zijde van de speler.
+In deze methode wordt het environment gereset als de speler of de tegenstander vijf punten heeft behaald. Als geen van beide vijf punten hebben, worden alle objecten verwijderd. De `Puck` wordt opnieuw gegenereerd op basis van wie er gescoord heeft. Als de speler gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de tegenstander. Als de tegenstander gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de speler.
 
 ```csharp
 public void AddPointsPlayer()
@@ -306,9 +309,12 @@ public class Environment : MonoBehaviour
     }
 }
 ```
+
+Bovenstaand script is het volledige environment script.
+
 ### 6.2 Hammer
 
-uitleg volledig script
+Het `Hammer` script is het script dat de agent gebruikt om te leren.
 
 ```csharp
 private Environment environment;
@@ -326,7 +332,7 @@ public override void Initialize()
 }
 ```
 
-uitleg parameters en initialize
+Bovenaan het script worden de variabelen geïnitialiseerd. In de Initialize methode wordt de rigibody en het environment opgevuld.
 
 ```csharp
 public override void OnActionReceived(float[] vectorAction)
@@ -378,7 +384,7 @@ public override void OnActionReceived(float[] vectorAction)
 }
 ```
 
-uitleg OnActionReceived methode
+De OnActionReceived methode word gebruikt om de acties om te zetten naar bewegingen. Hiermee kunnen 9 verschillende acties uitgevoerd worden. 
 
 ```csharp
 public override void OnEpisodeBegin()
@@ -389,7 +395,7 @@ public override void OnEpisodeBegin()
 }
 ```
 
-uitleg OnEpisodeBegin methode
+OnEpisodeBegin methode word bij het begin van een episode aangeroepen. Hier worden het aantal goals op 0 gezet, de match op niet gewonnen en word de ClearEnvironment van het environment script aangeroepen.
 
 ```csharp
 public override void Heuristic(float[] actionsOut)
@@ -437,7 +443,7 @@ public override void Heuristic(float[] actionsOut)
 }
 ```
 
-uitleg Heuristic method
+De Heuristic methode worde gebruikt om de acties te kunnen testen. Hiermee kan dan alles van de agent getest worden of het werkt volgens de verwachtingen.
 
 ```csharp
 public void GetPoint()
@@ -450,7 +456,7 @@ public void EndEpisodeHockey()
 }
 ```
 
-uitleg GetPoint en EndEpisodeHockey methodes
+De GetPoint methode word gebruikt om in het `Puck` script de agent punten te geven. De GetPoint methode word gebruikt om in het environment script de agent zijn episode te laten beëindigen.
 
 ```csharp
 private void OnCollisionEnter(Collision collision)
@@ -466,7 +472,7 @@ private void OnCollisionEnter(Collision collision)
 }
 ```
 
-uitleg OnCollisionEnter methode
+De OnCollisionEnter methode word gebruikt om de agent rewards te geven als hij iets aanraakt.
 
 ```csharp
 using System.Collections;
@@ -609,8 +615,10 @@ public class HammerPlayer : Agent
         }
     }
 }
-
 ```
+
+Bovenstaand script is het volledige `Hammer` script.
+
 ### 6.3 Puck
 
 Het `Puck` script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur.
@@ -627,53 +635,57 @@ void Start()
 }
 ```
 
-Bovenaan het script worden de variabelen geïnitialiseerd. In de "Start()" methode wordt de RigidBody variabele opgevuld met de RigidBody van het `Puck` object. De environment variabele wordt opgevuld met de environment component.
+Bovenaan het script worden de variabelen geïnitialiseerd. In de Start methode wordt de RigidBody variabele opgevuld met de RigidBody van het `Puck` object. De environment variabele wordt opgevuld met de environment component.
 
 ```csharp
-    void FixedUpdate()
-    {
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-    }
+void FixedUpdate()
+{
+    rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+}
 ```
 
-In de "FixedUpdate()" methode wordt de score van de agents weergegeven met een precisie van twee cijfers na de komma. Deze methode wordt elke frame aangeroepen, dit zorgt ervoor dat de score van de agent contstant wordt geüpdatet.
+In de FixedUpdate methode wordt de snelheid van de `Puck` gelimiteerd zodat deze niet te snel gaat. Deze methode wordt elke frame aangeroepen, dit zorgt ervoor dat het onmogelijk is dat de `Puck` sneller gaat dan de maximale snelheid.
 
 ```csharp
-    private void OnCollisionEnter(Collision collision)
+private void OnCollisionEnter(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Field"))
     {
-        if (collision.gameObject.CompareTag("Field"))
-        {
-            rb.constraints = RigidbodyConstraints.FreezePositionY;
-        }
-        if (collision.gameObject.CompareTag("HammerPlayer") || collision.gameObject.CompareTag("HammerOpponent"))
-        {
-            rb.velocity = new Vector3(rb.velocity.x * 5, 0, rb.velocity.z * 5);
-        }
-        if (collision.gameObject.CompareTag("Border"))
-        {
-            var orthogonalVector = collision.contacts[0].point - transform.position;
-            var collisionAngle = Vector3.Angle(orthogonalVector, rb.velocity);
-            transform.rotation *= Quaternion.Euler(0, collisionAngle, 0);
-            rb.velocity = new Vector3(rb.velocity.x * 2, 0, rb.velocity.z * 2);
-        }
-        if (collision.gameObject.CompareTag("GoalPlayer"))
-        {
-            environment.AddPointsOpponent();
-            rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            environment.ClearEnvironment(false);
-        }
-        if (collision.gameObject.CompareTag("GoalOpponent"))
-        {
-            environment.AddPointsPlayer();
-            rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            environment.ClearEnvironment(true);
-        }
+        rb.constraints = RigidbodyConstraints.FreezePositionY;
     }
+    if (collision.gameObject.CompareTag("HammerPlayer") || collision.gameObject.CompareTag("HammerOpponent"))
+    {
+        rb.velocity = new Vector3(rb.velocity.x * 5, 0, rb.velocity.z * 5);
+    }
+    if (collision.gameObject.CompareTag("Border"))
+    {
+        var orthogonalVector = collision.contacts[0].point - transform.position;
+        var collisionAngle = Vector3.Angle(orthogonalVector, rb.velocity);
+        transform.rotation *= Quaternion.Euler(0, collisionAngle, 0);
+        rb.velocity = new Vector3(rb.velocity.x * 2, 0, rb.velocity.z * 2);
+    }
+    if (collision.gameObject.CompareTag("GoalPlayer"))
+    {
+        environment.AddPointsOpponent();
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        environment.ClearEnvironment(false);
+    }
+    if (collision.gameObject.CompareTag("GoalOpponent"))
+    {
+        environment.AddPointsPlayer();
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        environment.ClearEnvironment(true);
+    }
+}
 ```
 
-TEXT
+Dit script zorgt ervoor dat de `Puck` de juiste acties doet bij het aanraken van bepaalde objecten. De Y-as van de `Puck` wordt bevroren wanneer de `Puck` de grond aanraakt, dit zorgt ervoor dat de `Puck` niet uit het veld kan vliegen.
+
+Wanneer een `Hammer` de `Puck` aanraakt, wordt de snelheid van de `Puck` geregeld in deze methode. In de derde if-structuur wordt de hoek bepaalt die de `Puck` gebruikt om terug te botsen wanneer hij een muur aanraakt.
+
+Ten slotte worden de laatste twee if-structuren gebruikt om te detecteren wanneer een `Puck` de goal aanraakt. Er worden methodes aangeroepen die punten toevoegen afhankelijk van die er gescoord heeft. Het environment wordt leeggemaakt en de ClearEnvironment methode wordt aangeroepen.
 
 ```csharp
 using System.Collections;
@@ -731,6 +743,8 @@ public class Puck : MonoBehaviour
     }
 }
 ```
+
+Bovenstaand script is het volledige `Puck` script.
 
 ## 7. Training
 
@@ -792,7 +806,7 @@ In de map learning moet een command prompt geopend worden. In dit command prompt
 
 `mlagents-learn AIr-Hockey.yml --run-id Hammer-01`
 
-AIr-Hockey.yml is de gebruikte yml-file en Hammer-01 is de map die aangemaakt word om de resultaten van de training in te zetten.
+AIr-Hockey.yml is de gebruikte yml-file en Hammer-01 is de map die aangemaakt word om de van de training in te zetten.
 
 Hierna moet in unity op play gedrukt worden. Dit zal blijven trainen tot dit gestopt word of tot er het aantal max_steps van de yml-file doorlopen is.
 
@@ -808,7 +822,7 @@ Zoals te zien in de afbeelding zijn de resultaten van het leren niet zo goed. Bi
 
 ### 7.4 Opvallende waarnemingen
 
-Als we na het trainen de AI terug in een hammer staken was meestal het resultaat dat hij na 1 keer de puck aan te raken of direct de hammer tegen een hoek of border aan ging hangen.
+Als we na het trainen de AI terug in een `Hammer` staken was meestal het resultaat dat hij na 1 keer de `Puck` aan te raken of direct de `Hammer` tegen een hoek of border aan ging hangen.
 
 ## 8. Oculus Quest 2
 
@@ -848,8 +862,6 @@ De XR-Rig representeert de positie waar de speler in de omgeving terecht gaat ko
 
  ![Controllers Configuration](./img/ControllersConfiguration.png)
 
-
-
 ### 8.4 Grab Script
 
 Dit script maakt het object grijpbaar. We voegen dit script dus toe aan de `HammerPlayer`. Aangezien dit de `Hammer` is die de speler zal gebruiken om het spel te spelen.
@@ -873,7 +885,8 @@ public class Grab : XRGrabInteractable
         StoreInteractor(interactor);
         MatchAttachmentPoints(interactor);
     }
-``` 
+```
+
 Bovenaan het script worden de objecten geïnitialiseerd. In de "OnSelectEnter()" methode wordt de controller meegegeven. We instantiëren de RigidBody van de `HammerPlayer`, hierna gaan we het object freezen op de y-as en freezen op de rotatie. We zetten ook Kinematic af. Vervolgens roepen we de volgende 2 methodes aan en geven de controller mee StoreInteractor en MatchAttachmentPoints.
 
 ```csharp
@@ -911,12 +924,186 @@ In StoreInteractor methode gaan we onze controller meegeven, hier gaan we van de
     }
 }
 ```
+
 In de OnSelectExit methode gaan we onze controller weer doorgeven en het object terug op kinematic zetten. Hierna roepen we weer de volgende 2 methoden aan waarbij we weer de controller doorgeven ResetAttachments en ClearInteractor. In de ResetAttachmentPoints methode gaan we de controller de positie geven waar hij het object heeft losgelaten. Daarna gaan we in ClearInput onze variabele terug op 0 zetten.
 
+### 8.5 Game Script
+
+Dit script regelt het verloop van het spel in VR. We voegen dit script dus toe aan de `Environment`.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class Game : MonoBehaviour
+{
+    public Player player;
+    public HammerPlayer opponent;
+    private TextMeshPro scoreBoard;
+    public PuckGame puckPrefab;
+    public GameObject position;
+    private int goalAmountPlayer = 0;
+    private int goalAmountOpponent = 0;
+
+    public void OnEnable()
+    {
+        scoreBoard = transform.GetComponentInChildren<TextMeshPro>();
+    }
+
+    public void FixedUpdate()
+    {
+        scoreBoard.text = goalAmountPlayer.ToString() + " - " + goalAmountOpponent.ToString();
+    }
+    
+```
+OnEnable() instantieert het scorebord dat de punten bij houdt van de 2 spelers. De FixeUpdate() methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
+
+```csharp
+
+    public void ResetGame(bool playerScored)
+    {
+        if (goalAmountPlayer >= 5 || goalAmountOpponent >= 5)
+        {
+            Application.Quit();
+        }
+        else
+        {
+            foreach (Transform _object in position.transform)
+            {
+                Destroy(_object.gameObject);
+            }
+            SpawnPuck(playerScored);
+        }
+    }
+
+    public void SpawnPuck(bool playerScored)
+    {
+        if (!playerScored)
+        {
+            GameObject newPuck = Instantiate(puckPrefab.gameObject);
+            newPuck.transform.SetParent(position.transform);
+            newPuck.transform.localPosition = new Vector3(-5f, 0f);
+            opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
+        }
+        else
+        {
+            GameObject newPuck = Instantiate(puckPrefab.gameObject);
+            newPuck.transform.SetParent(position.transform);
+            newPuck.transform.localPosition = new Vector3(5f, 0f);
+            opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
+        }
+    }
+```
+
+ResetGame() zal instaan voor het eindigen van het spel. Hiervoor moet 1 van de 2 spelers 5 punten scoren. De methode SpawnPuck() zal na het scoren van een punt telkens de `Puck` op de juiste plek plaatsen. Dit is belangrijk aangezien de speler die een tegengoal kreeg de `Puck` krijgt.
+
+```csharp
+    public void AddPointsPlayer()
+    {
+        goalAmountPlayer++;
+    }
+
+    public void AddPointsOpponent()
+    {
+        goalAmountOpponent++;
+    }
+}
+```
+
+### 8.6 Player Script
+
+Dit Player script gaat ervoor zorgen dat `Hammer-Player` geïnstantieerd wordt en gaat bij het begin de GameResetten om te beginnen.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    private Game game;
+    private Rigidbody rb = null;
+    public bool matchWon = false;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        game = GetComponentInParent<Game>();
+        matchWon = false;
+        game.ResetGame(true);
+    }
+}
+``` 
+
+### 8.7 PuckGame Script
+
+Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het `Game` script in plaats van het environment script.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PuckGame : MonoBehaviour
+{
+    private Game game;
+    private Rigidbody rb;
+    private float maxSpeed = 25f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        game = GetComponentInParent<Game>();
+    }
+    void FixedUpdate()
+    {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+    }
+```
+```csharp
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Field"))
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionY;
+        }
+
+        if (collision.gameObject.CompareTag("HammerPlayer") || collision.gameObject.CompareTag("HammerOpponent"))
+        {
+            rb.velocity = new Vector3(rb.velocity.x * 5, 0, rb.velocity.z * 5);
+        }
+
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            var orthogonalVector = collision.contacts[0].point - transform.position;
+            var collisionAngle = Vector3.Angle(orthogonalVector, rb.velocity);
+            transform.rotation *= Quaternion.Euler(0, collisionAngle, 0);
+            rb.velocity = new Vector3(rb.velocity.x * 2, 0, rb.velocity.z * 2);
+        }
+        if (collision.gameObject.CompareTag("GoalPlayer"))
+        {
+            game.AddPointsOpponent();
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            game.ResetGame(false);
+        }
+        if (collision.gameObject.CompareTag("GoalOpponent"))
+        {
+            game.AddPointsPlayer();
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            game.ResetGame(true);
+        }
+    }
+}
+```
+In de OncollisionEnter roepen we nu ook AddPointsPlayer en AddpointsOpponent vanuit game aan in plaats vanuit environment. De laatste verandering is het aanropen van GameReset in plaats van Clearenvironment vanuit environment.
+
+
  ![XR-Rig Configuration](./img/XR-RigConfig.png)
-
-
  
 ## 9. Conclusie
 
-Tekst..
+In dit project zijn we de uitdagingen van VR en AI aangegaan in de vorm van een Airhockey spel. Wij zijn niet volledig blij met de resultaten, vooral dat de AI niet het gewenste patroon aanleert met een grote hoeveelheid training. Toch hebben wij een grote hoeveelheid ervaring opgedaan die ons goed zal doen in toekomstige projecten die VR of AI componenten bevatten. Moesten wij het project nog eens ondernemen dan zouden wij er graag aan beginnen met meer ervaring met verschillende AI types en een duidelijkere ondergrond van VR.
