@@ -167,7 +167,7 @@ Doorheen het spel zal de ML-Agent voortdurend beslissingen maken tussen deze neg
 
 Het environment script bevat alle instellingen van de applicatie. Dit script zorgt ervoor dat de `Puck` aan de juiste zijde van het veld wordt gegenereerd. Het spel wordt opnieuw opgestart als er een speler is met vijf punten.
 
-```cshrp
+```csharp
 public HammerPlayer player;
 public HammerPlayer opponent;
 private TextMeshPro scoreBoard;
@@ -1136,3 +1136,5 @@ Unity Technologies. (z.d.). Learning-Environment-Design-Agents.md. GitHub. Geraa
 Unity Technologies. (z.d.). Training-ML-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van <https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-ML-Agents.md#training-configurations>
 
 VR with Andrew. (2020, 1 april). Offset Interactable using Unity’s XR Toolkit (Tomato Presence) [Video]. YouTube. <https://www.youtube.com/watch?v=-a36GpPkW-Q&ab_channel=VRwithAndrew>
+
+Unity. (2020, 5 november). Class XRDeviceSimulator | XR Interaction Toolkit | 0.10.0-preview.7. Geraadpleegd op 7 januari 2021, van <https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@0.10/api/UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation.XRDeviceSimulator.html>
