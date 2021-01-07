@@ -22,7 +22,7 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 1. ML-agents release 6 package (<https://github.com/Unity-Technologies/ml-agents/releases/tag/release_6>)
 1. Visual Studio Community  (<https://visualstudio.microsoft.com/downloads/>)
 1. Python 3.8.6 (<https://www.python.org/downloads/>)
-1. SideQuest (https://sidequestvr.com/setup-howto)
+1. SideQuest (<https://sidequestvr.com/setup-howto>)
 1. Oculus Quest 2 (VR-Bril)
 
 ## 2. Inleiding
@@ -55,7 +55,7 @@ Het AI-component van dit project heeft als meerwaarde dat een AI tegenstander mo
 
 De primaire interactie van de gebruiker is het verplaatsen van zijn eigen `Hammer` op het spelbord. Ook heeft de gebruiker een interactie met de `Puck`, deze kan in een richting weggestuurd worden door ertegen te botsen met de `Hammer`. Ook heeft de gebruiker interacties met de agent, aangezien deze als tegenstander fungeert en ook een `Hammer` beweegt om te spelen.
 
-### 3.4 Kwardrant 
+### 3.4 Kwardrant
 
 De gebruiker ziet een airhockey tafel voor zich, hij drukt op de startknop en hoort de `Puck` uit de gleuf vallen. Hij kijkt naar beneden en pakt deze op om hem op het veld te leggen, ondertussen begint de arcade muziek te spelen en gaat de luchtstroom van de tafel aan. Hij legt de `Puck` op de tafel, neemt dan de `Hammer` en slaat de `Puck` met een harde “TOK” ermee naar de andere kant van het veld, waar de AI zal verdedigen en deze probeert terug te kaatsen en zelf te scoren.
 Er word gescoord, er speelt een geluid en wanneer de gebruiker opkijkt ziet hij de 1 op het scorebord verschijnen maar het spel is nog niet voorbij, de `Puck` wordt terug op het veld geplaatst en het spel gaat door.
@@ -385,7 +385,7 @@ public override void OnActionReceived(float[] vectorAction)
 }
 ```
 
-De OnActionReceived methode word gebruikt om de acties om te zetten naar bewegingen. Hiermee kunnen 9 verschillende acties uitgevoerd worden. 
+De OnActionReceived methode word gebruikt om de acties om te zetten naar bewegingen. Hiermee kunnen 9 verschillende acties uitgevoerd worden.
 
 ```csharp
 public override void OnEpisodeBegin()
@@ -860,18 +860,18 @@ Om het APK bestand te gebruiken met de Oculus Quest 2 maken we gebruik van de ap
 Sleep het gegenereerde APK bestand in dit tablad. Als je na het instaleren onderstaande afbeelding te zien krijgt, kan je de Oculus Quest 2 opzetten.
 
  ![APK Installed](./img/APKInstalled.png)
- 
+
 In de Oculus Quest 2 zelf navigeer je in de omgeving naar _Apps_. In de rechter dropdown selecter je _Unknow Resources_.
 
 ### 8.3 XR-Rig
 
 De XR-Rig representeert de positie waar de speler in de omgeving terecht gaat komen. De XR-Rig bevat een camera voor de speler en een linker en rechter controller. Deze representeren je Oculus Quest 2 Controllers.
- 
+
  ![XR-Rig](./img/XR-Rig.png)
 
  ![Inspector-XR-Rig](./img/XR-RigConfig.png)
 
- #### 8.3.1 Controllers
+#### 8.3.1 Controllers
 
  Beide Controllers moeten geconfigureert worden zoals te zien op onderstaande afbeelding.
 
@@ -917,7 +917,7 @@ Bovenaan het script worden de objecten geïnitialiseerd. In de OnSelectEnter met
     }
 ```
 
-In StoreInteractor methode gaan we onze controller meegeven, hier gaan we van de controller de positie in een variabele steken en bijhouden. Daarna gaan we verder met de MatchAttachmentPoints methode. In deze methode gaan we een boolean aanmaken die bekijkt dat controller het object vast heeft of niet. Daarna gaan we in de positie van de controller de positie van het object doorgeven als hij het object vastheeft of gaan we de positie van de controller doorgeven als dit niet zo is. 
+In StoreInteractor methode gaan we onze controller meegeven, hier gaan we van de controller de positie in een variabele steken en bijhouden. Daarna gaan we verder met de MatchAttachmentPoints methode. In deze methode gaan we een boolean aanmaken die bekijkt dat controller het object vast heeft of niet. Daarna gaan we in de positie van de controller de positie van het object doorgeven als hij het object vastheeft of gaan we de positie van de controller doorgeven als dit niet zo is.
 
 ```csharp
     protected override void OnSelectExit(XRBaseInteractor interactor)
@@ -973,6 +973,7 @@ public class Game : MonoBehaviour
     }
     
 ```
+
 OnEnable instantieert het `Scoreboard` dat de punten bij houdt van de 2 spelers. De FixedUpdate methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
 
 ```csharp
@@ -1054,13 +1055,13 @@ public class Player : MonoBehaviour
         game.ResetGame(true);
     }
 }
-``` 
+```
 
 ### 8.7 PuckGame Script
 
 Dupliceer de `Puck` Prefab en vervang het `Puck` script naar het `Puck`game script.
 
-Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het Game script in plaats van het environment script. 
+Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het Game script in plaats van het environment script.
 
 ```csharp
 using System.Collections;
@@ -1121,18 +1122,17 @@ public class PuckGame : MonoBehaviour
     }
 }
 ```
+
 In de OncollisionEnter roepen we nu ook AddPointsPlayer en AddpointsOpponent vanuit Game aan in plaats vanuit `Environment`. De laatste verandering is het aanropen van GameReset in plaats van ClearEnvironment vanuit `Environment`.
- 
+
 ## 9. Conclusie
 
 In dit project zijn we de uitdagingen van VR en AI aangegaan in de vorm van een Airhockey spel. Wij zijn niet volledig blij met de resultaten, vooral dat de AI niet het gewenste patroon aanleert met een grote hoeveelheid training. Toch hebben wij een grote hoeveelheid ervaring opgedaan die ons goed zal doen in toekomstige projecten die VR of AI componenten bevatten. Moesten wij het project nog eens ondernemen dan zouden wij er graag aan beginnen met meer ervaring met verschillende AI types en een duidelijkere ondergrond van VR.
 
 ## 10. Bronvermelding
 
-Unity Technologies. (z.d.). Learning-Environment-Design-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Design-Agents.md
+Unity Technologies. (z.d.). Learning-Environment-Design-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van <https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Design-Agents.md>
 
-Unity Technologies. (z.d.). Training-ML-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-ML-Agents.md#training-configurations
+Unity Technologies. (z.d.). Training-ML-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van <https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-ML-Agents.md#training-configurations>
 
-VR with Andrew. (2020, 1 april). Offset Interactable using Unity’s XR Toolkit (Tomato Presence) [Video]. YouTube. https://www.youtube.com/watch?v=-a36GpPkW-Q&ab_channel=VRwithAndrew
-
-
+VR with Andrew. (2020, 1 april). Offset Interactable using Unity’s XR Toolkit (Tomato Presence) [Video]. YouTube. <https://www.youtube.com/watch?v=-a36GpPkW-Q&ab_channel=VRwithAndrew>
