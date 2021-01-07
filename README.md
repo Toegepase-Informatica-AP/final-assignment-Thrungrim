@@ -12,8 +12,8 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 1. [Scripts](#6-scripts)
 1. [Training](#7-training)
 1. [Oculus Quest 2](#8-oculus-quest-2)
-1. [One-pager](#9-one-pager)
-1. [Conclusie](#10-conclusie)
+1. [Conclusie](#9-conclusie)
+1. [Bronvermelding](#10-bronvermelding)
 
 ## 1. Benodigdheden
 
@@ -49,16 +49,16 @@ De speler start het spel met een `Puck` te nemen en die op het veld te plaatsen 
 
 ### 3.2 Meerwaarde
 
-Het AI-component van dit project heeft als meerwaarde dat een AI tegenstander moeilijker te voorspellen is. Een goede speler kan in geprogrammeerde tegenstanders patronen vinden en uitbuiten om makkelijk te winnen of hoge scores te behalen, bij een AI tegenstander kan dit niet. De AI traint aan de hand van "adversarial self-play", dit staat de AI toe om tegelijk te leren om de verdedigen en aanvallen.
+Het AI-component van dit project heeft als meerwaarde dat een AI tegenstander moeilijker te voorspellen is. Een goede speler kan in geprogrammeerde tegenstanders patronen vinden en uitbuiten om makkelijk te winnen of hoge scores te behalen, bij een AI tegenstander kan dit niet. De AI traint aan de hand van _adversarial self-play_, dit staat de AI toe om tegelijk te leren om de verdedigen en aanvallen.
 
 ### 3.3 Interacties
 
-De primaire interactie van de gebruiker is het verplaatsen van zijn eigen "hamer" op het spelbord. Ook heeft de gebruiker een interactie met de puck, deze kan in een richting weggestuurd worden door ertegen te botsen met de hamer. Ook heeft de gebruiker interacties met de agent, aangezien deze als tegenstander fungeert en ook een hamer beweegt om te spelen.
+De primaire interactie van de gebruiker is het verplaatsen van zijn eigen `Hammer` op het spelbord. Ook heeft de gebruiker een interactie met de `Puck`, deze kan in een richting weggestuurd worden door ertegen te botsen met de `Hammer`. Ook heeft de gebruiker interacties met de agent, aangezien deze als tegenstander fungeert en ook een `Hammer` beweegt om te spelen.
 
 ### 3.4 Kwardrant 
 
-De gebruiker ziet een airhockey tafel voor zich, hij drukt op de startknop en hoort de puck uit de gleuf vallen. Hij kijkt naar beneden en pakt deze op om hem op het veld te leggen, ondertussen begint de arcade muziek te spelen en gaat de luchtstroom van de tafel aan. Hij legt de puck op de tafel, neemt dan de pod en slaat de puck met een harde “TOK” ermee naar de andere kant van het veld, waar de AI zal verdedigen en deze probeert terug te kaatsen en zelf te scoren.
-Er word gescoord, er speelt een geluid en wanneer de gebruiker opkijkt ziet hij de 1 op het scorebord verschijnen maar het spel is nog niet voorbij, de puck wordt terug op het veld geplaatst en het spel gaat door...
+De gebruiker ziet een airhockey tafel voor zich, hij drukt op de startknop en hoort de `Puck` uit de gleuf vallen. Hij kijkt naar beneden en pakt deze op om hem op het veld te leggen, ondertussen begint de arcade muziek te spelen en gaat de luchtstroom van de tafel aan. Hij legt de `Puck` op de tafel, neemt dan de `Hammer` en slaat de `Puck` met een harde “TOK” ermee naar de andere kant van het veld, waar de AI zal verdedigen en deze probeert terug te kaatsen en zelf te scoren.
+Er word gescoord, er speelt een geluid en wanneer de gebruiker opkijkt ziet hij de 1 op het scorebord verschijnen maar het spel is nog niet voorbij, de `Puck` wordt terug op het veld geplaatst en het spel gaat door.
 
 ### 3.5 Afwijkingen van de one-pager
 
@@ -94,16 +94,19 @@ Origineel zou deze groep een virtuele schietbaan maken waar de doelwitten bewege
 ### 4.2 Environment
 
 ![Environment](./img/Environment.png)
+
 ![Environment](./img/Inspector-Environment.png)
 
 ### 4.3 Hammer
 
 ![Hammer](./img/Hammer.png)
+
 ![Hammer](./img/Inspector-Hammer.png)
 
 ### 4.4 Puck
 
 ![Puck](./img/Puck.png)
+
 ![Puck](./img/Inspector-Puck.png)
 
 ### 4.5 Border
@@ -212,7 +215,7 @@ public void ClearEnvironment(bool playerScored)
 }
 ```
 
-In deze methode wordt het environment gereset als de speler of de tegenstander vijf punten heeft behaald. Als geen van beide vijf punten hebben, worden alle objecten verwijderd. De `Puck` wordt opnieuw gegenereerd op basis van wie er gescoord heeft. Als de speler gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de tegenstander. Als de tegenstander gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de speler.
+In deze methode wordt het environment gereset als de speler of de tegenstander vijf punten heeft behaald. Als geen van beide vijf punten hebben, worden alle `Pucks` verwijderd. De `Puck` wordt opnieuw gegenereerd op basis van wie er gescoord heeft. Als de speler gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de tegenstander. Als de tegenstander gescoord heeft, wordt de `Puck` gegenereerd aan de zijde van de speler.
 
 ```csharp
 public void AddPointsPlayer()
@@ -309,8 +312,6 @@ public class Environment : MonoBehaviour
     }
 }
 ```
-
-Bovenstaand script is het volledige environment script.
 
 ### 6.2 Hammer
 
@@ -617,8 +618,6 @@ public class HammerPlayer : Agent
 }
 ```
 
-Bovenstaand script is het volledige `Hammer` script.
-
 ### 6.3 Puck
 
 Het `Puck` script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur.
@@ -744,8 +743,6 @@ public class Puck : MonoBehaviour
 }
 ```
 
-Bovenstaand script is het volledige `Puck` script.
-
 ## 7. Training
 
 Voordat je kan beginnen met trainen moet er nog een map genaamd "learning" worden aangemaakt. In deze map moet een map genaamd "results" inkomen. In deze map gaan de brains inkomen.
@@ -822,19 +819,37 @@ Zoals te zien in de afbeelding zijn de resultaten van het leren niet zo goed. Bi
 
 ### 7.4 Opvallende waarnemingen
 
-Als we na het trainen de AI terug in een `Hammer` staken was meestal het resultaat dat hij na 1 keer de `Puck` aan te raken of direct de `Hammer` tegen een hoek of border aan ging hangen.
+Als we na het trainen de AI terug in een `Hammer` staken was meestal het resultaat dat hij na 1 keer de `Puck` te raken meteen aan de `Border` ging hangen.
 
 ## 8. Oculus Quest 2
 
-Nu we onze omgeving hebben opgebouwt en onze AI getraint is kunnen we starten met her VR-gedeelte. Wij hebben gebruik gemaakt van de VR-bril Oculus Quest 2. De bedoeling is dat we met onze controllers de `Hammer` kunnen vastpakken. Zo kunnen we erna rondbewegen met de `Hammer` om de `Puck` te raken.
+Nu we onze omgeving hebben opgebouwt en onze AI getraint is, kunnen we starten met her VR-gedeelte. Wij hebben gebruik gemaakt van de VR-bril Oculus Quest 2. De bedoeling is dat we met onze controllers de `Hammer` kunnen vastpakken. Zo kunnen we erna rondbewegen met de `Hammer` om de `Puck` te scoren bij de tegenstander.
 
 ### 8.1 XR Interaction Toolkit
 
-Hiervoor zullen we een extra package moeten importen. Dit doen we door te navigeren naar Window => Package Manager. In de Package Manager selecteer je 'Show Preview Packages' in de dropdown 'Advanced'. Zoek nu 'XR Interaction Toolkit' en import de versie 0.9.4. Deze package komt met een aantal componenten en prefabs die we hier onder verder verduidelijken.
+Hiervoor zullen we een extra package moeten importen. Deze package bevat een aantal componenten en profabs die we hieronder verder verduidelijken.
+
+1. Navigeer naar Window.
+1. Klik vervolgens op Package Manager.
+1. Selecteer _Show Preview Packages_ in de _Advanced_ dropdown.
+1. Zoek _XR Interaction Toolkit_ en importeer versie 0.9.4.
 
 ### 8.2 APK Build Settings
 
-We navigeren naar File => Build Settings => Install With Unity Hub. Klik ten slotte op 'Done'. We navigeren terug naar Build Settings => Player Settings. Als we Other Settings openen en scrollen tot 'Identification'. Hier zetten we het veld 'Minimum API Level' op 'API level 25'. Nu navigeren we in hetzelfde tablad in de rechterkolom naar XR Plug-in Management. Klik hier op 'Install XR Plug-in Management'. Onder de Tab van Android selecteer je hier Oculus. Unity zal vervolgens vragen om naar het platform Android te veranderen. Je kan nu vervolgens opnieuw in Build Settings op het knopje Build drukken. Dit zal een APK bestand generen dat je kan gebruiken om je wereld te starten via de Oculus Quest 2.
+1. Navigeer naar File.
+1. Klik vervolgens op Build Settings.
+1. Klik op Install With Unity Hub.
+1. Klik ten slotte op Done.
+1. Navigeer naar Build Settings.
+1. Klik op Player Settings.
+1. Open _Other Settings_ en scrol tot _Identification_.
+1. Zet het veld _Minimum API Level_ op _API level 25_.
+1. Navigeer naar _XR Plug-in Management_.
+1. Klik op _Install XR Plug-in Management_.
+1. Selecteer _Oculus_ onder de _Android_ tab.
+1. Navigeer naar _Build Settings_ en klik op de _Build_ knop.
+
+Dit zal een APK-bestand genereren dat gebruikt kan worden om de wereld op te starten via de Oculus Quest 2.
 
 ### 8.3 Running the APK
 
@@ -846,7 +861,7 @@ Sleep het gegenereerde APK bestand in dit tablad. Als je na het instaleren onder
 
  ![APK Installed](./img/APKInstalled.png)
  
-In de Oculus Quest 2 zelf navigeer je in de omgeving naar 'Apps'. In de rechter dropdown selecter je 'Unknow Resources'.
+In de Oculus Quest 2 zelf navigeer je in de omgeving naar _Apps_. In de rechter dropdown selecter je _Unknow Resources_.
 
 ### 8.3 XR-Rig
 
@@ -854,7 +869,7 @@ De XR-Rig representeert de positie waar de speler in de omgeving terecht gaat ko
  
  ![XR-Rig](./img/XR-Rig.png)
 
- ![XR-Rig Configuration](./img/XR-RigConfig.png)
+ ![Inspector-XR-Rig](./img/XR-RigConfig.png)
 
  #### 8.3.1 Controllers
 
@@ -864,7 +879,7 @@ De XR-Rig representeert de positie waar de speler in de omgeving terecht gaat ko
 
 ### 8.4 Grab Script
 
-Dit script maakt het object grijpbaar. We voegen dit script dus toe aan de `HammerPlayer`. Aangezien dit de `Hammer` is die de speler zal gebruiken om het spel te spelen.
+Dit script maakt het object grijpbaar. We voegen dit script dus toe aan de `Hammer-Player`. Aangezien dit de `Hammer` is die de speler zal gebruiken om het spel te spelen.
 
 ```csharp
 using System.Collections.Generic;
@@ -887,7 +902,7 @@ public class Grab : XRGrabInteractable
     }
 ```
 
-Bovenaan het script worden de objecten geïnitialiseerd. In de "OnSelectEnter()" methode wordt de controller meegegeven. We instantiëren de RigidBody van de `HammerPlayer`, hierna gaan we het object freezen op de y-as en freezen op de rotatie. We zetten ook Kinematic af. Vervolgens roepen we de volgende 2 methodes aan en geven de controller mee StoreInteractor en MatchAttachmentPoints.
+Bovenaan het script worden de objecten geïnitialiseerd. In de OnSelectEnter methode wordt de controller meegegeven. We instantiëren de RigidBody van de `Hammer--Player`, hierna gaan we het object freezen op de y-as en freezen op de rotatie. We zetten ook Kinematic af. Vervolgens roepen we de volgende 2 methodes aan en geven de controller mee StoreInteractor en MatchAttachmentPoints.
 
 ```csharp
     private void StoreInteractor(XRBaseInteractor interactor)
@@ -929,7 +944,7 @@ In de OnSelectExit methode gaan we onze controller weer doorgeven en het object 
 
 ### 8.5 Game Script
 
-Dit script regelt het verloop van het spel in VR. We voegen dit script dus toe aan de `Environment`. Je mag het vorig script op `Environment` vervangen met dit script. Dit is nodig aangezien het vorig script diende voor het trainen van onze AI. Waarbij dit script het echte spel representeert.
+Dit script regelt het verloop van het spel in VR. We voegen dit script dus toe aan de `E-nvironment`. Je mag het vorig script op `Environment` afvinken. Dit is nodig aangezien het vorig script diende voor het trainen van onze AI. Waarbij het `Game` script het echte spel representeert.
 
 ```csharp
 using System.Collections;
@@ -958,7 +973,7 @@ public class Game : MonoBehaviour
     }
     
 ```
-OnEnable instantieert het scorebord dat de punten bij houdt van de 2 spelers. De FixeUpdate methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
+OnEnable instantieert het `Scoreboard` dat de punten bij houdt van de 2 spelers. De FixedUpdate methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
 
 ```csharp
 
@@ -1016,7 +1031,9 @@ De AddPointsPlayer/Opponent methoden staan beide in voor het toekennen van een p
 
 ### 8.6 Player Script
 
-Dit Player script gaat ervoor zorgen dat `Hammer-Player` geïnstantieerd wordt en gaat bij het begin de GameResetten om te beginnen. Voeg dit script toe aan `hammerPlayer` en disable 
+Voeg aan `Hammer-Player` het Player script toe en verwijder alle scripts totdat je het Player script en het Grab script over hebt.
+
+Dit Player script gaat ervoor zorgen dat `Hammer-Player` geïnstantieerd wordt en gaat bij het begin de ResetGame methode aanroepen.
 
 ```csharp
 using System.Collections;
@@ -1041,9 +1058,9 @@ public class Player : MonoBehaviour
 
 ### 8.7 PuckGame Script
 
-Dupliceer de `Puck` Prefab en 
+Dupliceer de `Puck` Prefab en vervang het `Puck` script naar het `Puck`game script.
 
-Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het `Game` script in plaats van het environment script. 
+Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het Game script in plaats van het environment script. 
 
 ```csharp
 using System.Collections;
@@ -1066,6 +1083,7 @@ public class PuckGame : MonoBehaviour
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
 ```
+
 ```csharp
     private void OnCollisionEnter(Collision collision)
     {
@@ -1103,8 +1121,18 @@ public class PuckGame : MonoBehaviour
     }
 }
 ```
-In de OncollisionEnter roepen we nu ook AddPointsPlayer en AddpointsOpponent vanuit game aan in plaats vanuit environment. De laatste verandering is het aanropen van GameReset in plaats van Clearenvironment vanuit environment.
+In de OncollisionEnter roepen we nu ook AddPointsPlayer en AddpointsOpponent vanuit Game aan in plaats vanuit `Environment`. De laatste verandering is het aanropen van GameReset in plaats van ClearEnvironment vanuit `Environment`.
  
 ## 9. Conclusie
 
 In dit project zijn we de uitdagingen van VR en AI aangegaan in de vorm van een Airhockey spel. Wij zijn niet volledig blij met de resultaten, vooral dat de AI niet het gewenste patroon aanleert met een grote hoeveelheid training. Toch hebben wij een grote hoeveelheid ervaring opgedaan die ons goed zal doen in toekomstige projecten die VR of AI componenten bevatten. Moesten wij het project nog eens ondernemen dan zouden wij er graag aan beginnen met meer ervaring met verschillende AI types en een duidelijkere ondergrond van VR.
+
+## 10. Bronvermelding
+
+Unity Technologies. (z.d.). Learning-Environment-Design-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Design-Agents.md
+
+Unity Technologies. (z.d.). Training-ML-Agents.md. GitHub. Geraadpleegd op 7 januari 2021, van https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-ML-Agents.md#training-configurations
+
+VR with Andrew. (2020, 1 april). Offset Interactable using Unity’s XR Toolkit (Tomato Presence) [Video]. YouTube. https://www.youtube.com/watch?v=-a36GpPkW-Q&ab_channel=VRwithAndrew
+
+
