@@ -1,0 +1,23 @@
+{
+    "Hammer": {
+        "checkpoints": [
+            {
+                "steps": 19600,
+                "file_path": "results\\Hammer-33\\Hammer\\Hammer-19600.nn",
+                "reward": null,
+                "creation_time": 1609943390.5541642
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 19600,
+            "file_path": "results\\Hammer-33\\Hammer.nn",
+            "reward": null,
+            "creation_time": 1609943390.5541642
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.0",
+        "tensorflow_version": "2.3.1"
+    }
+}

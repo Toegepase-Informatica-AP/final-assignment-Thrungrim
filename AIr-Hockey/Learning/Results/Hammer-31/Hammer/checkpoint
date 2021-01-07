@@ -1,0 +1,6 @@
+model_checkpoint_path: "Hammer-500240.ckpt"
+all_model_checkpoint_paths: "Hammer-349984.ckpt"
+all_model_checkpoint_paths: "Hammer-399984.ckpt"
+all_model_checkpoint_paths: "Hammer-449984.ckpt"
+all_model_checkpoint_paths: "Hammer-499984.ckpt"
+all_model_checkpoint_paths: "Hammer-500240.ckpt"
