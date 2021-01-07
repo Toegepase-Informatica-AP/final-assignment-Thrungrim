@@ -66,13 +66,11 @@ public class Environment : MonoBehaviour
     public void AddPointsPlayer()
     {
         player.AddReward(1f);
-        //opponent.AddReward(-1f);
         player.goalAmount++;
     }
     public void AddPointsOpponent()
     {
         opponent.AddReward(1f);
-        //player.AddReward(-1f);
         opponent.goalAmount++;
     }
 }
