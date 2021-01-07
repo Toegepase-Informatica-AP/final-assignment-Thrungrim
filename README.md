@@ -9,7 +9,7 @@ In deze tutorial wordt uitgelegd hoe je een eigen VR air-hockey game maakt die g
 1. [One-pager](#3-one-pager)
 1. [Objecten](#4-objecten)
 1. [Agent](#5-agent)
-1. [Scripts](#6-scripts)
+1. [Componenten & Scripts](#6-componenten-&-scripts)
 1. [Training](#7-training)
 1. [Oculus Quest 2](#8-oculus-quest-2)
 1. [Conclusie](#9-conclusie)
