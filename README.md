@@ -929,7 +929,7 @@ In de OnSelectExit methode gaan we onze controller weer doorgeven en het object 
 
 ### 8.5 Game Script
 
-Dit script regelt het verloop van het spel in VR. We voegen dit script dus toe aan de `Environment`.
+Dit script regelt het verloop van het spel in VR. We voegen dit script dus toe aan de `Environment`. Je mag het vorig script op `Environment` vervangen met dit script. Dit is nodig aangezien het vorig script diende voor het trainen van onze AI. Waarbij dit script het echte spel representeert.
 
 ```csharp
 using System.Collections;
@@ -958,7 +958,7 @@ public class Game : MonoBehaviour
     }
     
 ```
-OnEnable() instantieert het scorebord dat de punten bij houdt van de 2 spelers. De FixeUpdate() methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
+OnEnable instantieert het scorebord dat de punten bij houdt van de 2 spelers. De FixeUpdate methode zal de inhoud van het scorebord aanpassen wanneer er een punt wordt gescoord.
 
 ```csharp
 
@@ -997,7 +997,7 @@ OnEnable() instantieert het scorebord dat de punten bij houdt van de 2 spelers. 
     }
 ```
 
-ResetGame() zal instaan voor het eindigen van het spel. Hiervoor moet 1 van de 2 spelers 5 punten scoren. De methode SpawnPuck() zal na het scoren van een punt telkens de `Puck` op de juiste plek plaatsen. Dit is belangrijk aangezien de speler die een tegengoal kreeg de `Puck` krijgt.
+ResetGame zal instaan voor het eindigen van het spel. Hiervoor moet 1 van de 2 spelers 5 punten scoren. De methode SpawnPuck zal na het scoren van een punt telkens de `Puck` op de juiste plek plaatsen. Dit is belangrijk aangezien de speler die een tegengoal kreeg de `Puck` krijgt.
 
 ```csharp
     public void AddPointsPlayer()
@@ -1012,9 +1012,11 @@ ResetGame() zal instaan voor het eindigen van het spel. Hiervoor moet 1 van de 2
 }
 ```
 
+De AddPointsPlayer/Opponent methoden staan beide in voor het toekennen van een punt aan de speler die gescoord heeft.
+
 ### 8.6 Player Script
 
-Dit Player script gaat ervoor zorgen dat `Hammer-Player` geïnstantieerd wordt en gaat bij het begin de GameResetten om te beginnen.
+Dit Player script gaat ervoor zorgen dat `Hammer-Player` geïnstantieerd wordt en gaat bij het begin de GameResetten om te beginnen. Voeg dit script toe aan `hammerPlayer` en disable 
 
 ```csharp
 using System.Collections;
@@ -1039,7 +1041,9 @@ public class Player : MonoBehaviour
 
 ### 8.7 PuckGame Script
 
-Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het `Game` script in plaats van het environment script.
+Dupliceer de `Puck` Prefab en 
+
+Het PuckGame script zorgt ervoor dat de `Puck` vooruit gaat als er met een `Hammer` tegen wordt geslagen. Het script zorgt ervoor dat de `Puck` naar de juiste richting botst als hij in contact komt met de muur. Dit script lijkt super hard op het Puck script, de veranderingen zijn het instantiëren van het `Game` script in plaats van het environment script. 
 
 ```csharp
 using System.Collections;
@@ -1100,9 +1104,6 @@ public class PuckGame : MonoBehaviour
 }
 ```
 In de OncollisionEnter roepen we nu ook AddPointsPlayer en AddpointsOpponent vanuit game aan in plaats vanuit environment. De laatste verandering is het aanropen van GameReset in plaats van Clearenvironment vanuit environment.
-
-
- ![XR-Rig Configuration](./img/XR-RigConfig.png)
  
 ## 9. Conclusie
 
