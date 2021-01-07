@@ -69,7 +69,7 @@ public class HammerPlayer : Agent
     {
         goalAmount = 0;
         matchWon = false;
-        environment.ClearEnvironment(true);
+        //environment.ClearEnvironment(true);
     }
 
     public override void Heuristic(float[] actionsOut)
@@ -120,10 +120,12 @@ public class HammerPlayer : Agent
     {
         AddReward(1f);
     }
+
     public void EndEpisodeHockey()
     {
         EndEpisode();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Puck") == true)

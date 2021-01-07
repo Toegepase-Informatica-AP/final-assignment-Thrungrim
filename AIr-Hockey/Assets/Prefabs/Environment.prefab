@@ -666,6 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4478324497059485331}
   - component: {fileID: 3754616950709459083}
+  - component: {fileID: 5587721501354105867}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Border
@@ -698,7 +699,6 @@ Transform:
   - {fileID: 2974464014958790414}
   - {fileID: 3505793938334959202}
   - {fileID: 2974464014790921063}
-  - {fileID: 2974464014827524775}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -709,14 +709,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823765082463995738}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0321f375db76732438b91f07fac8b1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4445523438735724500}
+  player: {fileID: 0}
   opponent: {fileID: 8625305283745848095}
   puckPrefab: {fileID: 8058601891266343563, guid: b8f46ff6a22ee3b4084bb30d5fb9eb0d,
+    type: 3}
+  position: {fileID: 2974464014790921060}
+--- !u!114 &5587721501354105867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823765082463995738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9d12e9b9379b246b675803649061ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1279338183073391276}
+  opponent: {fileID: 8625305283745848095}
+  puckPrefab: {fileID: 5034915348715305692, guid: bed27dcabc6f91944ae7be197aee8559,
     type: 3}
   position: {fileID: 2974464014790921060}
 --- !u!1 &2296028024404246046
@@ -951,7 +968,7 @@ GameObject:
   - component: {fileID: 2974464014688037715}
   - component: {fileID: 2974464014688037712}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: North-East-Border
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,7 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2974464014790921063}
   m_Layer: 0
-  m_Name: SpawnPuckPlayer
+  m_Name: SpawnPuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1061,36 +1078,6 @@ Transform:
   m_Father: {fileID: 4478324497059485331}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2974464014827524772
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2974464014827524775}
-  m_Layer: 0
-  m_Name: SpawnPuckOpponent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2974464014827524775
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2974464014827524772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.33, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4478324497059485331}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2974464014927413583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1091,7 @@ GameObject:
   - component: {fileID: 2974464014927413568}
   - component: {fileID: 2974464014927413569}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: North-West-Border
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1182,7 @@ GameObject:
   - component: {fileID: 2974464014958790414}
   - component: {fileID: 2974464014958790401}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Screan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1241,7 +1228,7 @@ GameObject:
   - component: {fileID: 2974464015464232112}
   - component: {fileID: 2974464015464232113}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: South-East-Border
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,7 +1321,7 @@ GameObject:
   - component: {fileID: 2974464016214629105}
   - component: {fileID: 2974464016214629118}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: South-West-Border
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,6 +1494,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3372279546359886618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6975922110785854799}
+  m_Layer: 0
+  m_Name: Attach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6975922110785854799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372279546359886618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4380593187709734490}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3505793938334959230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,13 +1550,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3505793938334959230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.34}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 1.9}
   m_LocalScale: {x: 0.2, y: 0.5, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4478324497059485331}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 180}
+  m_LocalEulerAnglesHint: {x: 180, y: 270, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.05, y: 5.88}
@@ -1611,7 +1628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1767,7 +1784,7 @@ MonoBehaviour:
     VectorActionSize: 0a000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
-  m_Model: {fileID: 5022602860645237092, guid: 66fa3fac039574f4d8e0df7eeb512b18, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 5a43661a8adbd624cb80c921a03be39a, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Hammer
@@ -1788,7 +1805,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 0
   force: 250
   goalAmount: 0
   matchWon: 0
@@ -1895,9 +1912,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4380593187709734490}
   - component: {fileID: 3040552513973756090}
-  - component: {fileID: 4445523438735724488}
-  - component: {fileID: 4445523438735724491}
-  - component: {fileID: 4445523438735724500}
+  - component: {fileID: 1279338183073391276}
+  - component: {fileID: 6258122428561222974}
   m_Layer: 0
   m_Name: Hammer-Player
   m_TagString: HammerPlayer
@@ -1913,12 +1929,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445523438735724501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.69, y: -0.6474429, z: 0}
+  m_LocalPosition: {x: -5.5, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2158620855201231056}
   - {fileID: 9215090451037868962}
   - {fileID: 3487649286913498730}
+  - {fileID: 6975922110785854799}
   m_Father: {fileID: 4478324497059485331}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1938,7 +1955,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &4445523438735724488
+--- !u!114 &1279338183073391276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1947,54 +1964,84 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445523438735724501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Script: {fileID: 11500000, guid: 1db8c586d98c6604fb7dc300e83f52f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BrainParameters:
-    VectorObservationSize: 0
-    NumStackedVectorObservations: 1
-    VectorActionSize: 0a000000
-    VectorActionDescriptions: []
-    VectorActionSpaceType: 0
-  m_Model: {fileID: 5022602860645237092, guid: 66fa3fac039574f4d8e0df7eeb512b18, type: 3}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: Hammer
-  TeamId: 1
-  m_UseChildSensors: 1
---- !u!114 &4445523438735724491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445523438735724501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
---- !u!114 &4445523438735724500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445523438735724501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481288bb836967f4188669cec4e77780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
-  force: 250
-  goalAmount: 0
   matchWon: 0
+--- !u!114 &6258122428561222974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445523438735724501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0b8677ae35ab545b7cd7b24c2c79fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_OnFirstHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CustomReticle: {fileID: 0}
+  m_AttachTransform: {fileID: 6975922110785854799}
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 1
+  m_TrackPosition: 1
+  m_SmoothPosition: 0
+  m_SmoothPositionAmount: 5
+  m_TightenPosition: 0.5
+  m_TrackRotation: 1
+  m_SmoothRotation: 0
+  m_SmoothRotationAmount: 5
+  m_TightenRotation: 0.5
+  m_ThrowOnDetach: 1
+  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ThrowVelocityScale: 1.5
+  m_ThrowAngularVelocityScale: 0.25
+  m_GravityOnDetach: 1
+  m_RetainTransformParent: 1
 --- !u!1 &5422530379053923495
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Environment : MonoBehaviour
+public class Game : MonoBehaviour
 {
-    public HammerPlayer player;
+    public Player player;
     public HammerPlayer opponent;
     private TextMeshPro scoreBoard;
-    public Puck puckPrefab;
+    public PuckGame puckPrefab;
     public GameObject position;
+    private int goalAmountPlayer = 0;
+    private int goalAmountOpponent = 0;
 
     public void OnEnable()
     {
@@ -18,20 +20,14 @@ public class Environment : MonoBehaviour
 
     public void FixedUpdate()
     {
-        scoreBoard.text = player.GetCumulativeReward().ToString("f2") + " | " + opponent.GetCumulativeReward().ToString("f2");
+        scoreBoard.text = goalAmountPlayer.ToString() + " - " + goalAmountOpponent.ToString();
     }
 
-    public void ClearEnvironment(bool playerScored)
+    public void ResetGame(bool playerScored)
     {
-        if (player.goalAmount > 5)
+        if (goalAmountPlayer >= 5 || goalAmountOpponent >= 5)
         {
-            player.EndEpisodeHockey();
-            opponent.EndEpisodeHockey();
-        }
-        else if (opponent.goalAmount > 5)
-        {
-            opponent.EndEpisodeHockey();
-            player.EndEpisodeHockey();
+            Application.Quit();
         }
         else
         {
@@ -50,7 +46,6 @@ public class Environment : MonoBehaviour
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(-5f, 0f);
-            player.transform.localPosition = new Vector3(-5.5f, -0.64f, 0);
             opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
         }
         else
@@ -58,19 +53,17 @@ public class Environment : MonoBehaviour
             GameObject newPuck = Instantiate(puckPrefab.gameObject);
             newPuck.transform.SetParent(position.transform);
             newPuck.transform.localPosition = new Vector3(5f, 0f);
-            player.transform.localPosition = new Vector3(-5.5f, -0.64f, 0);
             opponent.transform.localPosition = new Vector3(9f, -0.64f, 0);
         }
     }
 
     public void AddPointsPlayer()
     {
-        player.AddReward(1f);
-        player.goalAmount++;
+        goalAmountPlayer++;
     }
+
     public void AddPointsOpponent()
     {
-        opponent.AddReward(1f);
-        opponent.goalAmount++;
+        goalAmountOpponent++;
     }
 }
